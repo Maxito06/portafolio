@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, input, output } from '@angular/core';
+import { Proyecto } from '../../models/proyecto.model';
 
 @Component({
   selector: 'app-project-card',
@@ -6,4 +7,7 @@ import { Component } from '@angular/core';
   templateUrl: './project-card.html',
   styleUrl: './project-card.scss',
 })
-export class ProjectCard {}
+export class ProjectCard {
+  proyecto = input.required<Proyecto>();
+  seleccionar = output<Proyecto>();
+}

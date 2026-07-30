@@ -1,1 +1,25 @@
-<p>project-modal works!</p>
+<div class="modal-overlay" (click)="cerrar.emit()">
+  <div class="modal-contenido" (click)="$event.stopPropagation()">
+    <button type="button" class="modal-cerrar" (click)="cerrar.emit()">×</button>
+
+    <div class="card-imagen">
+      <img [src]="proyecto().imagen" [alt]="proyecto().titulo" />
+    </div>
+    <h3>{{ proyecto().titulo }}</h3>
+
+    <p>{{ proyecto().descripcionDetallada }}</p>
+
+    <div class="tags">
+      @for (tech of proyecto().stack; track tech) {
+        <span class="skill-tag">{{ tech }}</span>
+      }
+    </div>
+
+    @if (proyecto().repoUrl !== 'PENDIENTE') {
+      <a class="modal-link" [href]="proyecto().repoUrl" target="_blank">Ver repositorio</a>
+    }
+    @if (proyecto().demoUrl !== 'PENDIENTE') {
+      <a class="modal-link" [href]="proyecto().demoUrl" target="_blank">Ver demo en vivo</a>
+    }
+  </div>
+</div>

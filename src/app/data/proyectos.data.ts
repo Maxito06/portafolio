@@ -8,7 +8,7 @@ export const PROYECTOS: Proyecto[] = [
     descripcionDetallada:
       'Aplicación que permite buscar libros por título, autor o palabra clave consumiendo la API pública de OpenLibrary, mostrando portadas y detalles de cada resultado.',
     stack: ['Angular', 'TypeScript', 'OpenLibrary API'],
-    imagen: '',
+    imagen: '/images/proyectos/book-search.png',
     repoUrl: 'https://github.com/Maxito06/book-search-app',
     demoUrl: 'https://book-search-app-lac.vercel.app/',
   },
@@ -20,7 +20,7 @@ export const PROYECTOS: Proyecto[] = [
     descripcionDetallada:
       'Explorador de películas y series con rutas dinámicas por título, lista de seguimiento (watchlist) persistida con signals, y filtros por género y año, con tema visual oscuro tipo cine.',
     stack: ['Angular', 'TypeScript', 'TMDB API', 'Signals'],
-    imagen: '',
+    imagen: '/images/proyectos/movie-explorer.png',
     repoUrl: 'https://github.com/Maxito06/movie-explorer',
     demoUrl: 'https://movie-explorer-orpin-six.vercel.app/',
   },
@@ -31,7 +31,7 @@ export const PROYECTOS: Proyecto[] = [
     descripcionDetallada:
       'Carta digital para un restaurante real de parrilla santandereana, con categorías de platos, precios en pesos colombianos, y sin necesidad de backend ni panel de administración.',
     stack: ['Angular', 'TypeScript'],
-    imagen: '',
+    imagen: '/images/proyectos/carta-virtual.png',
     repoUrl: 'PENDIENTE',
     demoUrl: 'https://carta-restaurante-two.vercel.app/',
   },

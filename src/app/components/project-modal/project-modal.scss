@@ -1,0 +1,75 @@
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.75);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.modal-contenido {
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-grid);
+  padding: var(--space-lg);
+  max-width: 600px;
+  width: 90%;
+  max-height: 80vh;
+  overflow-y: auto;
+  position: relative;
+  border-radius: 2px;
+}
+
+.modal-cerrar {
+  position: absolute;
+  top: var(--space-sm);
+  right: var(--space-sm);
+  background: transparent;
+  border: none;
+  font-size: 1.5rem;
+  color: var(--color-text);
+  cursor: pointer;
+}
+
+.card-imagen {
+  width: 100%;
+  aspect-ratio: 21 / 9;
+  overflow: hidden;
+  border-bottom: 1px solid var(--color-grid);
+  margin-bottom: var(--space-md);
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-xs);
+}
+
+.skill-tag {
+  border: 1px solid var(--color-grid);
+  background-color: transparent;
+  padding: 0.3rem 0.6rem;
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  color: var(--color-text-secondary);
+  border-radius: 2px;
+}
+
+.modal-link {
+  display: inline-block;
+  border: 1px solid var(--color-grid);
+  padding: var(--space-xs) var(--space-sm);
+  margin-right: var(--space-sm);
+  color: var(--color-text);
+  text-decoration: none;
+}

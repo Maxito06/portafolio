@@ -1,0 +1,19 @@
+.projects {
+  padding: var(--space-xl) var(--space-lg);
+
+  h2 {
+    margin-bottom: var(--space-lg);
+  }
+}
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-md);
+}
+
+@media (min-width: 700px) {
+  .projects-grid {
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  }
+}

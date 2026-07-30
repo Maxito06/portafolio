@@ -1,1 +1,14 @@
-<p>projects works!</p>
+<section class="projects">
+  <span class="hoja-label">HOJA 04 — PROYECTOS</span>
+  <h2>Proyectos</h2>
+
+  <div class="projects-grid">
+    @for (proyecto of proyectos; track proyecto.id) {
+      <app-project-card [proyecto]="proyecto" (seleccionar)="abrirModal(proyecto)"></app-project-card>
+    }
+  </div>
+
+  @if (proyectoSeleccionado()) {
+    <app-project-modal [proyecto]="proyectoSeleccionado()!" (cerrar)="cerrarModal()" />
+  }
+</section>

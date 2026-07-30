@@ -1,1 +1,14 @@
-<p>project-card works!</p>
+<div class="project-card" (click)="seleccionar.emit(proyecto())">
+  <div class="card-imagen">
+    <img [src]="proyecto().imagen" [alt]="proyecto().titulo" />
+  </div>
+  <div class="card-contenido">
+    <h3>{{ proyecto().titulo }}</h3>
+    <p>{{ proyecto().descripcionCorta }}</p>
+    <div class="tags">
+      @for (tech of proyecto().stack; track tech) {
+        <span class="skill-tag">{{ tech }}</span>
+      }
+    </div>
+  </div>
+</div>

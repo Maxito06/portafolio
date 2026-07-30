@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, input, output } from '@angular/core';
+import { Proyecto } from '../../models/proyecto.model';
 
 @Component({
   selector: 'app-project-modal',
@@ -6,4 +7,7 @@ import { Component } from '@angular/core';
   templateUrl: './project-modal.html',
   styleUrl: './project-modal.scss',
 })
-export class ProjectModal {}
+export class ProjectModal {
+  proyecto = input.required<Proyecto>();
+  cerrar = output<void>();
+}
