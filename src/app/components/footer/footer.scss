@@ -1,0 +1,22 @@
+.footer-contenido {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--space-sm);
+  padding: var(--space-md) var(--space-lg);
+  border-top: 1px solid var(--color-grid);
+
+  p:first-child {
+    color: var(--color-text-secondary);
+    font-size: 0.85rem;
+    margin: 0;
+  }
+}
+
+@media (max-width: 600px) {
+  .footer-contenido {
+    flex-direction: column;
+    text-align: center;
+  }
+}
