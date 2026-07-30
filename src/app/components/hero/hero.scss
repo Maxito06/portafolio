@@ -1,11 +1,38 @@
 .hero {
   min-height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr;
+  align-items: center;
+  padding: 0 var(--space-lg);
+}
+
+.hero-texto {
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: flex-start;
   gap: var(--space-sm);
-  padding: 0 var(--space-lg);
+}
+
+.hero-diagrama {
+  display: none;
+
+  svg {
+    max-width: 450px;
+    width: 100%;
+    height: auto;
+  }
+}
+
+@media (min-width: 1024px) {
+  .hero {
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-lg);
+  }
+
+  .hero-diagrama {
+    display: flex;
+    justify-content: center;
+  }
 }
 
 .hero__title {

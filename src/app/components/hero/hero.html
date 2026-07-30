@@ -1,20 +1,56 @@
 <div class="hero">
-  <span class="hoja-label">HOJA 01 — PERFIL</span>
-  <h1 class="hero__title">Maximiliano Correa</h1>
-  <h2 class="hero__subtitle">Frontend Developer &amp; QA Automation</h2>
-  <span class="hoja-label hero__stack">Angular · TypeScript · Playwright</span>
+  <div class="hero-texto">
+    <span class="hoja-label">HOJA 01 — PERFIL</span>
+    <h1 class="hero__title">Maximiliano Correa</h1>
+    <h2 class="hero__subtitle">Frontend Developer &amp; QA Automation</h2>
+    <span class="hoja-label hero__stack">Angular · TypeScript · Playwright</span>
 
-  <div class="hero__actions">
-    <button type="button" class="btn btn--solid" (click)="scrollAProyectos()">
-      Ver proyectos
-    </button>
-    <a
-      class="btn btn--outline"
-      href="/CV_Maximiliano_Correa.pdf"
-      download
-      target="_blank"
-    >
-      Descargar CV
-    </a>
+    <div class="hero__actions">
+      <button type="button" class="btn btn--solid" (click)="scrollAProyectos()">
+        Ver proyectos
+      </button>
+      <a
+        class="btn btn--outline"
+        href="/CV_Maximiliano_Correa.pdf"
+        download
+        target="_blank"
+      >
+        Descargar CV
+      </a>
+    </div>
+  </div>
+
+  <div class="hero-diagrama">
+    <svg viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg">
+      <line x1="250" y1="225" x2="95" y2="104" stroke="var(--color-grid)" stroke-width="1" stroke-dasharray="4 4"/>
+      <line x1="250" y1="225" x2="405" y2="104" stroke="var(--color-grid)" stroke-width="1" stroke-dasharray="4 4"/>
+      <line x1="320" y1="250" x2="370" y2="272" stroke="var(--color-grid)" stroke-width="1" stroke-dasharray="4 4"/>
+      <line x1="250" y1="275" x2="250" y2="400" stroke="var(--color-grid)" stroke-width="1" stroke-dasharray="4 4"/>
+      <line x1="180" y1="250" x2="150" y2="272" stroke="var(--color-grid)" stroke-width="1" stroke-dasharray="4 4"/>
+
+      <rect x="180" y="225" width="140" height="50" fill="var(--color-surface)" stroke="var(--color-text)" stroke-width="1.5" rx="2"/>
+      <text x="250" y="245" text-anchor="middle" font-family="var(--font-mono)" font-size="11" fill="var(--color-text)">MAXIMILIANO</text>
+      <text x="250" y="260" text-anchor="middle" font-family="var(--font-mono)" font-size="11" fill="var(--color-text)">CORREA</text>
+
+      <rect x="40" y="60" width="110" height="44" fill="var(--color-surface)" stroke="var(--color-grid)" stroke-width="1" rx="2"/>
+      <text x="95" y="87" text-anchor="middle" font-family="var(--font-mono)" font-size="12" fill="var(--color-text-secondary)">ANGULAR</text>
+      <circle cx="95" cy="104" r="3" fill="var(--color-text-secondary)"/>
+
+      <rect x="350" y="60" width="110" height="44" fill="var(--color-surface)" stroke="var(--color-grid)" stroke-width="1" rx="2"/>
+      <text x="405" y="87" text-anchor="middle" font-family="var(--font-mono)" font-size="12" fill="var(--color-text-secondary)">TYPESCRIPT</text>
+      <circle cx="405" cy="104" r="3" fill="var(--color-text-secondary)"/>
+
+      <rect x="370" y="250" width="110" height="44" fill="var(--color-surface)" stroke="var(--color-grid)" stroke-width="1" rx="2"/>
+      <text x="425" y="277" text-anchor="middle" font-family="var(--font-mono)" font-size="12" fill="var(--color-text-secondary)">PLAYWRIGHT</text>
+      <circle cx="370" cy="272" r="3" fill="var(--color-text-secondary)"/>
+
+      <rect x="195" y="400" width="110" height="44" fill="var(--color-surface)" stroke="var(--color-grid)" stroke-width="1" rx="2"/>
+      <text x="250" y="427" text-anchor="middle" font-family="var(--font-mono)" font-size="12" fill="var(--color-text-secondary)">PYTHON</text>
+      <circle cx="250" cy="400" r="3" fill="var(--color-text-secondary)"/>
+
+      <rect x="40" y="250" width="110" height="44" fill="var(--color-surface)" stroke="var(--color-grid)" stroke-width="1" rx="2"/>
+      <text x="95" y="277" text-anchor="middle" font-family="var(--font-mono)" font-size="12" fill="var(--color-text-secondary)">GIT</text>
+      <circle cx="150" cy="272" r="3" fill="var(--color-text-secondary)"/>
+    </svg>
   </div>
 </div>
