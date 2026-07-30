@@ -9,4 +9,17 @@
     <a class="header__link" href="#proyectos">Proyectos</a>
     <a class="header__link" href="#contacto">Contacto</a>
   </nav>
+  <button type="button" class="menu-toggle" (click)="toggleMenu()">☰</button>
 </header>
+
+@if (menuAbierto()) {
+  <div class="menu-overlay" (click)="cerrarMenu()">
+    <button type="button" class="menu-cerrar" (click)="cerrarMenu()">×</button>
+    <nav class="menu-overlay-nav" (click)="$event.stopPropagation()">
+      <a href="#sobre-mi" (click)="cerrarMenu()">Sobre mí</a>
+      <a href="#skills" (click)="cerrarMenu()">Skills</a>
+      <a href="#proyectos" (click)="cerrarMenu()">Proyectos</a>
+      <a href="#contacto" (click)="cerrarMenu()">Contacto</a>
+    </nav>
+  </div>
+}
