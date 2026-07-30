@@ -1,1 +1,74 @@
-<p>contact works!</p>
+<section class="contact">
+  <span class="hoja-label">HOJA 05 — CONTACTO</span>
+  <h2>Contacto</h2>
+  <p class="contact__intro">
+    ¿Buscas frontend developer o QA automation en tu equipo? Escríbeme.
+  </p>
+
+  <form class="contact-form" (ngSubmit)="enviar()">
+    <div class="form-field">
+      <label for="nombre">Nombre</label>
+      <input
+        id="nombre"
+        type="text"
+        name="nombre"
+        required
+        [ngModel]="nombre()"
+        (ngModelChange)="nombre.set($event)"
+      />
+    </div>
+
+    <div class="form-field">
+      <label for="email">Email</label>
+      <input
+        id="email"
+        type="email"
+        name="email"
+        required
+        [ngModel]="email()"
+        (ngModelChange)="email.set($event)"
+      />
+    </div>
+
+    <div class="form-field">
+      <label for="mensaje">Mensaje</label>
+      <textarea
+        id="mensaje"
+        name="mensaje"
+        rows="5"
+        required
+        [ngModel]="mensaje()"
+        (ngModelChange)="mensaje.set($event)"
+      ></textarea>
+    </div>
+
+    <button
+      type="submit"
+      [disabled]="estadoEnvio() === 'enviando' || estadoEnvio() === 'exito'"
+    >
+      @switch (estadoEnvio()) {
+        @case ('enviando') {
+          Enviando...
+        }
+        @case ('exito') {
+          ¡Mensaje enviado!
+        }
+        @default {
+          Enviar mensaje
+        }
+      }
+    </button>
+
+    @if (estadoEnvio() === 'error') {
+      <p class="contact-form__error">
+        Hubo un problema al enviar. Intenta de nuevo o escríbeme directo a
+        maxicopi5&#64;gmail.com
+      </p>
+    }
+  </form>
+
+  <div class="contact-links">
+    <a class="modal-link" href="https://github.com/Maxito06" target="_blank">GitHub</a>
+    <a class="modal-link" href="https://linkedin.com/in/maximiliano-correa-pico" target="_blank">LinkedIn</a>
+  </div>
+</section>
