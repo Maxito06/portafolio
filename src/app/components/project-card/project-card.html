@@ -1,4 +1,10 @@
-<div class="project-card" (click)="seleccionar.emit(proyecto())">
+<div
+  class="project-card"
+  role="button"
+  tabindex="0"
+  (click)="seleccionar.emit(proyecto())"
+  (keydown.enter)="seleccionar.emit(proyecto())"
+>
   <div class="card-imagen">
     <img [src]="proyecto().imagen" [alt]="proyecto().titulo" />
   </div>

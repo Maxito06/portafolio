@@ -1,4 +1,4 @@
-import { Component, input, output } from '@angular/core';
+import { Component, HostListener, input, output } from '@angular/core';
 import { Proyecto } from '../../models/proyecto.model';
 
 @Component({
@@ -10,4 +10,9 @@ import { Proyecto } from '../../models/proyecto.model';
 export class ProjectModal {
   proyecto = input.required<Proyecto>();
   cerrar = output<void>();
+
+  @HostListener('document:keydown.escape')
+  cerrarConEscape(): void {
+    this.cerrar.emit();
+  }
 }

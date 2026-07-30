@@ -33,6 +33,15 @@ html, body {
   scroll-behavior: smooth;
 }
 
+body {
+  background-image:
+    linear-gradient(color-mix(in srgb, var(--color-grid) 45%, transparent) 1px, transparent 1px),
+    linear-gradient(90deg, color-mix(in srgb, var(--color-grid) 45%, transparent) 1px, transparent 1px);
+  background-size: var(--space-lg) var(--space-lg);
+  background-position: -1px -1px;
+  background-attachment: fixed;
+}
+
 h1, h2, h3 {
   font-family: var(--font-display);
   margin: 0;
@@ -44,4 +53,72 @@ h1, h2, h3 {
   letter-spacing: 0.1em;
   text-transform: uppercase;
   color: var(--color-text-secondary);
+}
+
+// Marcas de registro decorativas en las esquinas de una "hoja" (sección),
+// reforzando el concepto de plano técnico sin agregar estructura nueva.
+.hoja-marca {
+  position: relative;
+
+  &::before,
+  &::after {
+    content: '';
+    position: absolute;
+    width: 14px;
+    height: 14px;
+    border: 1px solid var(--color-grid);
+    pointer-events: none;
+  }
+
+  &::before {
+    top: var(--space-sm);
+    left: var(--space-sm);
+    border-right: none;
+    border-bottom: none;
+  }
+
+  &::after {
+    bottom: var(--space-sm);
+    right: var(--space-sm);
+    border-left: none;
+    border-top: none;
+  }
+}
+
+// Revelado sutil al hacer scroll (usado por la directiva ScrollReveal).
+.scroll-reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.scroll-reveal--visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+::selection {
+  background-color: var(--color-text);
+  color: var(--color-bg);
+}
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+[role='button']:focus-visible {
+  outline: 1px dashed var(--color-text-secondary);
+  outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html, body {
+    scroll-behavior: auto;
+  }
+
+  .scroll-reveal {
+    transition: none;
+    opacity: 1;
+    transform: none;
+  }
 }

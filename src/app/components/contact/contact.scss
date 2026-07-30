@@ -61,10 +61,15 @@
   background-color: var(--color-text);
   color: var(--color-bg);
   cursor: pointer;
-  transition: opacity 0.2s ease;
+  transition: opacity 0.2s ease, transform 0.2s ease;
 
   &:hover:not(:disabled) {
     opacity: 0.85;
+    transform: translateY(-2px);
+  }
+
+  &:active:not(:disabled) {
+    transform: translateY(0);
   }
 
   &:disabled {
@@ -91,4 +96,9 @@
   padding: var(--space-xs) var(--space-sm);
   color: var(--color-text);
   text-decoration: none;
+  transition: border-color 0.2s ease;
+
+  &:hover {
+    border-color: var(--color-text);
+  }
 }

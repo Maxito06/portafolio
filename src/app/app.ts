@@ -6,10 +6,11 @@ import { Skills } from './components/skills/skills';
 import { Projects } from './components/projects/projects';
 import { Contact } from './components/contact/contact';
 import { Footer } from './components/footer/footer';
+import { ScrollReveal } from './directives/scroll-reveal';
 
 @Component({
   selector: 'app-root',
-  imports: [Header, Hero, About, Skills, Projects, Contact, Footer],
+  imports: [Header, Hero, About, Skills, Projects, Contact, Footer, ScrollReveal],
   templateUrl: './app.html',
   styleUrl: './app.scss'
 })

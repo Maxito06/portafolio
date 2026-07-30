@@ -23,6 +23,11 @@
   background-color: var(--color-surface);
   padding: var(--space-md);
   border-radius: 2px;
+  transition: border-color 0.2s ease;
+
+  &:hover {
+    border-color: var(--color-text);
+  }
 }
 
 .skills-tags {
@@ -40,4 +45,10 @@
   font-size: 0.8rem;
   color: var(--color-text-secondary);
   border-radius: 2px;
+  transition: border-color 0.2s ease, color 0.2s ease;
+
+  &:hover {
+    border-color: var(--color-text-secondary);
+    color: var(--color-text);
+  }
 }

@@ -10,7 +10,6 @@
   display: grid;
   grid-template-columns: 1fr;
   gap: var(--space-lg);
-  margin-top: var(--space-lg);
 }
 
 @media (min-width: 900px) {
@@ -37,6 +36,11 @@
   background-color: var(--color-surface);
   padding: var(--space-md);
   height: fit-content;
+  transition: border-color 0.2s ease;
+
+  &:hover {
+    border-color: var(--color-text);
+  }
 }
 
 .about-ficha__fila {
