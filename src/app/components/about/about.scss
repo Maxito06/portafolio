@@ -1,5 +1,9 @@
 .about {
   padding: var(--space-xl) var(--space-lg);
+
+  h2 {
+    margin-bottom: var(--space-lg);
+  }
 }
 
 .about-contenido {
