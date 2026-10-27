@@ -1,11 +1,11 @@
-# Portafolio — Maximiliano Correa
+# Portafolio | Maximiliano Correa
 
 ![Angular](https://img.shields.io/badge/Angular-21-DD0031?logo=angular&logoColor=white)
 ![TypeScript](https://img.shields.io/badge/TypeScript-5.9-3178C6?logo=typescript&logoColor=white)
 ![SCSS](https://img.shields.io/badge/SCSS-CC6699?logo=sass&logoColor=white)
 ![Deploy](https://img.shields.io/badge/Deploy-Vercel-000000?logo=vercel&logoColor=white)
 
-Portafolio personal de **Maximiliano Correa**, Ingeniero de Sistemas (UIS) — Frontend Developer & QA Automation.
+Portafolio personal de **Maximiliano Correa**, Ingeniero de Sistemas (UIS) y Desarrollador Full Stack Junior | Angular, NestJS, QA Automation. Mi experiencia laboral es en frontend y QA; el perfil full stack lo respalda Lienzo, un proyecto propio.
 
 **🔗 Demo en vivo:** [portafolio-seven-fawn-70.vercel.app](https://portafolio-seven-fawn-70.vercel.app/)
 
@@ -13,16 +13,16 @@ Portafolio personal de **Maximiliano Correa**, Ingeniero de Sistemas (UIS) — F
 
 ## Sobre el proyecto
 
-Este portafolio tiene una identidad visual propia: el concepto de **"plano de ingeniería técnica"**. Es monocromático (negro, blancos y grises, sin colores vivos), organiza el contenido como si fueran **hojas de un plano numeradas** (HOJA 01 — PERFIL, HOJA 02 — SOBRE MÍ, etc.) y usa tipografía técnica (`Space Grotesk`, `Inter` e `IBM Plex Mono`) junto con un diagrama esquemático de tecnologías dibujado en SVG dentro del Hero.
+Este portafolio tiene una identidad visual propia: el concepto de **"plano de ingeniería técnica"**. Es monocromático (negro, blancos y grises, sin colores vivos), organiza el contenido como si fueran **hojas de un plano numeradas** (HOJA 01 | PERFIL, HOJA 02 | SOBRE MÍ, etc.) y usa tipografía técnica (`Space Grotesk`, `Inter` e `IBM Plex Mono`) junto con un diagrama esquemático de tecnologías dibujado en SVG dentro del Hero.
 
 Es una **SPA de una sola vista** con scroll por anclas entre secciones:
 
-- **Header** — sticky, con navegación por anclas y menú overlay en mobile.
-- **Hero** — presentación con diagrama esquemático del stack técnico.
-- **Sobre mí** — resumen profesional y ficha técnica de datos.
-- **Skills** — habilidades agrupadas por categoría.
-- **Proyectos** — grid de tarjetas con modal de detalle por proyecto.
-- **Contacto** — formulario conectado a [Formspree](https://formspree.io/) (sin backend propio).
+- **Header**, sticky, con navegación por anclas y menú overlay en mobile.
+- **Hero**, presentación con diagrama esquemático del stack técnico.
+- **Sobre mí**, resumen profesional y ficha técnica de datos.
+- **Skills**, habilidades agrupadas por área.
+- **Proyectos**, grid de tarjetas con modal de detalle por proyecto.
+- **Contacto**, formulario conectado a [Formspree](https://formspree.io/) (sin backend propio).
 
 ## Características
 
@@ -106,10 +106,10 @@ Este sitio agrupa y enlaza mis otros proyectos personales, cada uno con su propi
 
 | Proyecto | Repositorio | Demo |
 |---|---|---|
-| **Lienzo** — galería de arte full stack con backend propio, base de datos, panel de administración, pruebas y CI. Es el proyecto más completo del portafolio | [github.com/Maxito06/lienzo-gallery](https://github.com/Maxito06/lienzo-gallery) | [Ver demo](https://lienzo-gallery.netlify.app) |
-| **Book Search App** — buscador de libros con la API de OpenLibrary | [github.com/Maxito06/book-search-app](https://github.com/Maxito06/book-search-app) | [Ver demo](https://book-search-app-lac.vercel.app/) |
-| **Movie Explorer** — explorador de películas y series con TMDB API | [github.com/Maxito06/movie-explorer](https://github.com/Maxito06/movie-explorer) | [Ver demo](https://movie-explorer-orpin-six.vercel.app/) |
-| **Carta Virtual** — menú digital para un restaurante real, sin backend | — | [Ver demo](https://carta-restaurante-two.vercel.app/) |
+| **Lienzo**, galería de arte full stack (demo, con obras de dominio público y sin cliente real) con backend en NestJS, PostgreSQL, panel de administración, pruebas automatizadas e integración continua. Es el proyecto más completo del portafolio | [github.com/Maxito06/lienzo-gallery](https://github.com/Maxito06/lienzo-gallery) | [Ver demo](https://lienzo-gallery.netlify.app) |
+| **Book Search App**, buscador de libros con la API de OpenLibrary | [github.com/Maxito06/book-search-app](https://github.com/Maxito06/book-search-app) | [Ver demo](https://book-search-app-lac.vercel.app/) |
+| **Movie Explorer**, explorador de películas y series con TMDB API | [github.com/Maxito06/movie-explorer](https://github.com/Maxito06/movie-explorer) | [Ver demo](https://movie-explorer-orpin-six.vercel.app/) |
+| **Carta Virtual**, menú digital para un restaurante real, sin backend | Sin repositorio público | [Ver demo](https://carta-restaurante-two.vercel.app/) |
 
 ## Contacto
 
