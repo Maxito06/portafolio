@@ -47,14 +47,24 @@
   padding: 0;
   color: var(--color-text-secondary);
 
+  li {
+    position: relative;
+    padding-left: var(--space-md);
+  }
+
   li + li {
     margin-top: var(--space-xs);
   }
 
   li::before {
-    content: '—';
-    font-family: var(--font-mono);
-    margin-right: var(--space-xs);
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.55em;
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: var(--color-text-secondary);
   }
 }
 

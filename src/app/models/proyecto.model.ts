@@ -10,5 +10,6 @@ export interface Proyecto {
   destacado?: boolean;
   aviso?: string;
   destacados?: string[];
+  limitaciones?: string[];
   stackPorCapa?: { capa: string; items: string[] }[];
 }

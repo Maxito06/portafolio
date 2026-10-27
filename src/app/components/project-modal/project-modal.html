@@ -47,6 +47,15 @@
       </div>
     }
 
+    @if (proyecto().limitaciones) {
+      <span class="hoja-label">ALCANCE Y LIMITACIONES</span>
+      <ul class="modal-destacados">
+        @for (limitacion of proyecto().limitaciones; track limitacion) {
+          <li>{{ limitacion }}</li>
+        }
+      </ul>
+    }
+
     @if (proyecto().repoUrl !== 'PENDIENTE') {
       <a class="modal-link" [href]="proyecto().repoUrl" target="_blank">Ver repositorio</a>
     }
