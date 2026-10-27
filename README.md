@@ -106,6 +106,7 @@ Este sitio agrupa y enlaza mis otros proyectos personales, cada uno con su propi
 
 | Proyecto | Repositorio | Demo |
 |---|---|---|
+| **Lienzo** — galería de arte full stack con backend propio, base de datos, panel de administración, pruebas y CI. Es el proyecto más completo del portafolio | [github.com/Maxito06/lienzo-gallery](https://github.com/Maxito06/lienzo-gallery) | [Ver demo](https://lienzo-gallery.netlify.app) |
 | **Book Search App** — buscador de libros con la API de OpenLibrary | [github.com/Maxito06/book-search-app](https://github.com/Maxito06/book-search-app) | [Ver demo](https://book-search-app-lac.vercel.app/) |
 | **Movie Explorer** — explorador de películas y series con TMDB API | [github.com/Maxito06/movie-explorer](https://github.com/Maxito06/movie-explorer) | [Ver demo](https://movie-explorer-orpin-six.vercel.app/) |
 | **Carta Virtual** — menú digital para un restaurante real, sin backend | — | [Ver demo](https://carta-restaurante-two.vercel.app/) |

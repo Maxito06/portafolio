@@ -7,4 +7,8 @@ export interface Proyecto {
   imagen: string;
   repoUrl: string;
   demoUrl: string;
+  destacado?: boolean;
+  aviso?: string;
+  destacados?: string[];
+  stackPorCapa?: { capa: string; items: string[] }[];
 }

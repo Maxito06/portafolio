@@ -1,5 +1,6 @@
 <div
   class="project-card"
+  [class.project-card--destacado]="proyecto().destacado"
   role="button"
   tabindex="0"
   (click)="seleccionar.emit(proyecto())"
@@ -9,6 +10,9 @@
     <img [src]="proyecto().imagen" [alt]="proyecto().titulo" />
   </div>
   <div class="card-contenido">
+    @if (proyecto().destacado) {
+      <span class="hoja-label">PROYECTO DESTACADO</span>
+    }
     <h3>{{ proyecto().titulo }}</h3>
     <p>{{ proyecto().descripcionCorta }}</p>
     <div class="tags">

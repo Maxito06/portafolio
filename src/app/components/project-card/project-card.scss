@@ -59,3 +59,29 @@
   color: var(--color-text-secondary);
   border-radius: 2px;
 }
+
+.card-contenido .hoja-label {
+  display: block;
+  margin-bottom: var(--space-xs);
+}
+
+@media (min-width: 900px) {
+  .project-card--destacado {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    height: 100%;
+
+    .card-imagen {
+      flex: 0 0 45%;
+      width: 45%;
+      margin-bottom: 0;
+      border-bottom: none;
+      border-right: 1px solid var(--color-grid);
+    }
+
+    .card-contenido {
+      flex: 1;
+    }
+  }
+}

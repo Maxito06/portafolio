@@ -1,5 +1,8 @@
 <div class="modal-overlay" (click)="cerrar.emit()">
-  <div class="modal-contenido" (click)="$event.stopPropagation()">
+  <div
+    class="modal-contenido"
+    [class.modal-contenido--ancho]="proyecto().stackPorCapa"
+    (click)="$event.stopPropagation()">
     <button type="button" class="modal-cerrar" (click)="cerrar.emit()">×</button>
 
     <div class="card-imagen">
@@ -9,11 +12,40 @@
 
     <p>{{ proyecto().descripcionDetallada }}</p>
 
-    <div class="tags">
-      @for (tech of proyecto().stack; track tech) {
-        <span class="skill-tag">{{ tech }}</span>
-      }
-    </div>
+    @if (proyecto().aviso) {
+      <p class="modal-aviso">{{ proyecto().aviso }}</p>
+    }
+
+    @if (proyecto().destacados) {
+      <span class="hoja-label">PUNTOS DESTACADOS</span>
+      <ul class="modal-destacados">
+        @for (punto of proyecto().destacados; track punto) {
+          <li>{{ punto }}</li>
+        }
+      </ul>
+    }
+
+    @if (proyecto().stackPorCapa) {
+      <span class="hoja-label">STACK POR CAPA</span>
+      <div class="stack-capas">
+        @for (capa of proyecto().stackPorCapa; track capa.capa) {
+          <div class="stack-capa">
+            <span class="stack-capa__nombre">{{ capa.capa }}</span>
+            <div class="tags">
+              @for (item of capa.items; track item) {
+                <span class="skill-tag">{{ item }}</span>
+              }
+            </div>
+          </div>
+        }
+      </div>
+    } @else {
+      <div class="tags">
+        @for (tech of proyecto().stack; track tech) {
+          <span class="skill-tag">{{ tech }}</span>
+        }
+      </div>
+    }
 
     @if (proyecto().repoUrl !== 'PENDIENTE') {
       <a class="modal-link" [href]="proyecto().repoUrl" target="_blank">Ver repositorio</a>

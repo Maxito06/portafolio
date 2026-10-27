@@ -25,6 +25,58 @@
   animation: modal-contenido-pop-in 0.25s ease;
 }
 
+.modal-contenido--ancho {
+  max-width: 720px;
+}
+
+.hoja-label {
+  display: block;
+  margin: var(--space-md) 0 var(--space-xs);
+}
+
+.modal-aviso {
+  font-size: 0.85rem;
+  color: var(--color-text-secondary);
+  border-left: 2px solid var(--color-grid);
+  padding-left: var(--space-sm);
+}
+
+.modal-destacados {
+  list-style: none;
+  margin: 0 0 var(--space-md);
+  padding: 0;
+  color: var(--color-text-secondary);
+
+  li + li {
+    margin-top: var(--space-xs);
+  }
+
+  li::before {
+    content: '—';
+    font-family: var(--font-mono);
+    margin-right: var(--space-xs);
+  }
+}
+
+.stack-capas {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+  margin-bottom: var(--space-md);
+}
+
+.stack-capa {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+}
+
+.stack-capa__nombre {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  color: var(--color-text-secondary);
+}
+
 @keyframes modal-overlay-fade-in {
   from {
     opacity: 0;

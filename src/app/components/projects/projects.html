@@ -4,7 +4,9 @@
 
   <div class="projects-grid">
     @for (proyecto of proyectos; track proyecto.id) {
-      <app-project-card [proyecto]="proyecto" (seleccionar)="abrirModal(proyecto)"></app-project-card>
+      <app-project-card
+        [class.projects-grid__item--destacado]="proyecto.destacado"
+        [proyecto]="proyecto" (seleccionar)="abrirModal(proyecto)"></app-project-card>
     }
   </div>
 
