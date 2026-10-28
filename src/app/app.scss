@@ -1,4 +1,7 @@
 // Separador fino entre secciones (el espacio en blanco hace el resto).
+// scroll-margin-top compensa el borde de 1px y el padding superior de la sección para que, al llegar
+// por ancla, el título quede a --space-lg del borde inferior del header (scroll-padding-top de html).
 main > section + section {
   border-top: 1px solid var(--color-border);
+  scroll-margin-top: calc(var(--space-lg) - var(--section-padding-y) - 1px);
 }
