@@ -1,3 +1,4 @@
+import { NgOptimizedImage } from '@angular/common';
 import {
   AfterViewInit,
   ChangeDetectionStrategy,
@@ -14,7 +15,7 @@ import { atraparTab, bloquearScroll } from '../../utils/dialogo';
 
 @Component({
   selector: 'app-project-modal',
-  imports: [],
+  imports: [NgOptimizedImage],
   templateUrl: './project-modal.html',
   styleUrl: './project-modal.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,

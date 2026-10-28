@@ -198,6 +198,7 @@ h1, h2, h3 {
 
 // Contenedor de imagen de proyecto (tarjeta y modal)
 .card-imagen {
+  position: relative; // referencia para las imágenes ngSrc en modo fill
   width: 100%;
   aspect-ratio: 16 / 9;
   overflow: hidden;

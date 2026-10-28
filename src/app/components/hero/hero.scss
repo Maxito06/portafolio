@@ -4,7 +4,9 @@
   display: grid;
   grid-template-columns: 1fr;
   align-items: center;
-  padding: 0 var(--section-padding-x);
+  gap: var(--space-lg);
+  // En móvil el diagrama va debajo del texto y el hero puede crecer más que la pantalla.
+  padding: var(--space-lg) var(--section-padding-x);
 }
 
 .hero-texto {
@@ -15,10 +17,11 @@
 }
 
 .hero-diagrama {
-  display: none;
+  display: flex;
+  justify-content: center;
 
   svg {
-    max-width: 450px;
+    max-width: 420px;
     width: 100%;
     height: auto;
   }
@@ -27,12 +30,12 @@
 @media (min-width: 1024px) {
   .hero {
     grid-template-columns: 1fr 1fr;
-    gap: var(--space-lg);
+    padding-top: 0;
+    padding-bottom: 0;
   }
 
-  .hero-diagrama {
-    display: flex;
-    justify-content: center;
+  .hero-diagrama svg {
+    max-width: 450px;
   }
 }
 

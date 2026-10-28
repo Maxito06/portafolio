@@ -11,7 +11,7 @@
     <button #botonCerrar type="button" class="modal-cerrar" aria-label="Cerrar" (click)="cerrar.emit()">×</button>
 
     <div class="card-imagen card-imagen--panoramica">
-      <img [src]="proyecto().imagen" [alt]="proyecto().titulo" />
+      <img [ngSrc]="proyecto().imagen" [alt]="proyecto().titulo" fill />
     </div>
     <h3 id="modal-titulo">{{ proyecto().titulo }}</h3>
 

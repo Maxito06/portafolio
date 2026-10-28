@@ -1,9 +1,10 @@
+import { NgOptimizedImage } from '@angular/common';
 import { ChangeDetectionStrategy, Component, input, output } from '@angular/core';
 import { Proyecto } from '../../models/proyecto.model';
 
 @Component({
   selector: 'app-project-card',
-  imports: [],
+  imports: [NgOptimizedImage],
   templateUrl: './project-card.html',
   styleUrl: './project-card.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
