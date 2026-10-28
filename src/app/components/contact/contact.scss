@@ -77,9 +77,20 @@
   }
 }
 
-.contact-form__error {
+.contact-form__error,
+.form-field__error {
   font-size: 0.85rem;
   color: #d98c4a;
+  margin: 0;
+}
+
+.form-field__error {
+  margin-top: 0.3rem;
+}
+
+.contact-form__exito {
+  font-size: 0.85rem;
+  color: var(--color-text);
   margin: 0;
 }
 

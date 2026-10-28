@@ -12,10 +12,17 @@
         id="nombre"
         type="text"
         name="nombre"
+        autocomplete="name"
         required
+        [attr.aria-invalid]="errorNombreVisible() ? 'true' : null"
+        [attr.aria-describedby]="errorNombreVisible() ? 'nombre-error' : null"
         [ngModel]="nombre()"
         (ngModelChange)="nombre.set($event)"
+        (blur)="marcarTocado('nombre')"
       />
+      @if (errorNombreVisible()) {
+        <p id="nombre-error" class="form-field__error">{{ errorNombreVisible() }}</p>
+      }
     </div>
 
     <div class="form-field">
@@ -24,10 +31,17 @@
         id="email"
         type="email"
         name="email"
+        autocomplete="email"
         required
+        [attr.aria-invalid]="errorEmailVisible() ? 'true' : null"
+        [attr.aria-describedby]="errorEmailVisible() ? 'email-error' : null"
         [ngModel]="email()"
         (ngModelChange)="email.set($event)"
+        (blur)="marcarTocado('email')"
       />
+      @if (errorEmailVisible()) {
+        <p id="email-error" class="form-field__error">{{ errorEmailVisible() }}</p>
+      }
     </div>
 
     <div class="form-field">
@@ -36,10 +50,17 @@
         id="mensaje"
         name="mensaje"
         rows="5"
+        autocomplete="off"
         required
+        [attr.aria-invalid]="errorMensajeVisible() ? 'true' : null"
+        [attr.aria-describedby]="errorMensajeVisible() ? 'mensaje-error' : null"
         [ngModel]="mensaje()"
         (ngModelChange)="mensaje.set($event)"
+        (blur)="marcarTocado('mensaje')"
       ></textarea>
+      @if (errorMensajeVisible()) {
+        <p id="mensaje-error" class="form-field__error">{{ errorMensajeVisible() }}</p>
+      }
     </div>
 
     <button
@@ -59,12 +80,17 @@
       }
     </button>
 
-    @if (estadoEnvio() === 'error') {
-      <p class="contact-form__error">
-        Hubo un problema al enviar. Intenta de nuevo o escríbeme directo a
-        maxicopi5&#64;gmail.com
-      </p>
-    }
+    <div class="contact-form__estado" aria-live="polite">
+      @if (estadoEnvio() === 'exito') {
+        <p class="contact-form__exito">Mensaje enviado. Gracias por escribirme.</p>
+      }
+      @if (estadoEnvio() === 'error') {
+        <p class="contact-form__error">
+          Hubo un problema al enviar. Intenta de nuevo o escríbeme directo a
+          maxicopi5&#64;gmail.com
+        </p>
+      }
+    </div>
   </form>
 
   <div class="contact-links">
