@@ -1,9 +1,10 @@
 .hero {
   min-height: 100vh;
+  min-height: 100dvh;
   display: grid;
   grid-template-columns: 1fr;
   align-items: center;
-  padding: 0 var(--space-lg);
+  padding: 0 var(--section-padding-x);
 }
 
 .hero-texto {

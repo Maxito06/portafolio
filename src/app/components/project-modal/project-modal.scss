@@ -15,7 +15,7 @@
 .modal-contenido {
   background-color: var(--color-surface);
   border: 1px solid var(--color-grid);
-  padding: var(--space-lg);
+  padding: clamp(var(--space-md), 6vw, var(--space-lg));
   max-width: 600px;
   width: 90%;
   max-height: 80vh;
