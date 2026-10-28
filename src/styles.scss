@@ -114,9 +114,13 @@ h1, h2, h3 {
     transform var(--duration-slow) var(--ease-standard);
 }
 
+// En el estado final no debe quedar ningún transform: cualquier valor distinto de
+// `none` (incluso translateY(0)) convierte a la sección en el bloque contenedor de
+// sus descendientes con position: fixed, como el overlay del modal de proyectos.
 .scroll-reveal--visible {
   opacity: 1;
-  transform: translateY(0);
+  transform: none;
+  will-change: auto;
 }
 
 // Enlace "Saltar al contenido": oculto fuera de pantalla hasta recibir foco.
