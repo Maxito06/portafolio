@@ -1,4 +1,5 @@
 import {
+  ChangeDetectionStrategy,
   Component,
   ElementRef,
   HostListener,
@@ -16,6 +17,7 @@ import { atraparTab, bloquearScroll } from '../../utils/dialogo';
   imports: [],
   templateUrl: './header.html',
   styleUrl: './header.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class Header implements OnDestroy {
   private readonly injector = inject(Injector);

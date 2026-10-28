@@ -1,5 +1,6 @@
 import {
   AfterViewInit,
+  ChangeDetectionStrategy,
   Component,
   ElementRef,
   HostListener,
@@ -16,6 +17,7 @@ import { atraparTab, bloquearScroll } from '../../utils/dialogo';
   imports: [],
   templateUrl: './project-modal.html',
   styleUrl: './project-modal.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ProjectModal implements AfterViewInit, OnDestroy {
   proyecto = input.required<Proyecto>();

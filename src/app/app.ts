@@ -1,4 +1,4 @@
-import { Component, signal } from '@angular/core';
+import { ChangeDetectionStrategy, Component, signal } from '@angular/core';
 import { Header } from './components/header/header';
 import { Hero } from './components/hero/hero';
 import { About } from './components/about/about';
@@ -12,7 +12,8 @@ import { ScrollReveal } from './directives/scroll-reveal';
   selector: 'app-root',
   imports: [Header, Hero, About, Skills, Projects, Contact, Footer, ScrollReveal],
   templateUrl: './app.html',
-  styleUrl: './app.scss'
+  styleUrl: './app.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class App {
   protected readonly title = signal('portafolio');

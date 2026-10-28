@@ -1,4 +1,4 @@
-import { Component, computed, signal } from '@angular/core';
+import { ChangeDetectionStrategy, Component, computed, signal } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
 type Campo = 'nombre' | 'email' | 'mensaje';
@@ -11,6 +11,7 @@ const CAMPOS_EN_ORDEN: Campo[] = ['nombre', 'email', 'mensaje'];
   imports: [FormsModule],
   templateUrl: './contact.html',
   styleUrl: './contact.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class Contact {
   nombre = signal('');

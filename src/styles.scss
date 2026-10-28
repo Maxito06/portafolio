@@ -1,4 +1,6 @@
 :root {
+  color-scheme: dark;
+
   // Colores
   --color-bg: #0A0A0A;
   --color-surface: #161616;
@@ -22,6 +24,12 @@
   // Espaciado fluido de secciones (en 1100px o más equivale a --space-xl / --space-lg)
   --section-padding-y: clamp(var(--space-lg), 12vw, var(--space-xl));
   --section-padding-x: clamp(var(--space-sm), 6vw, var(--space-lg));
+
+  // Movimiento
+  --duration-fast: 200ms;
+  --duration-base: 300ms;
+  --duration-slow: 400ms;
+  --ease-standard: cubic-bezier(0.2, 0, 0, 1);
 
   // Altura del header sticky (el header la usa como min-height para que sea exacta)
   --header-height: 5.25rem;
@@ -101,12 +109,37 @@ h1, h2, h3 {
 .scroll-reveal {
   opacity: 0;
   transform: translateY(24px);
-  transition: opacity 0.6s ease, transform 0.6s ease;
+  transition:
+    opacity var(--duration-slow) var(--ease-standard),
+    transform var(--duration-slow) var(--ease-standard);
 }
 
 .scroll-reveal--visible {
   opacity: 1;
   transform: translateY(0);
+}
+
+// Enlace "Saltar al contenido": oculto fuera de pantalla hasta recibir foco.
+.saltar-contenido {
+  position: absolute;
+  top: var(--space-xs);
+  left: var(--space-xs);
+  z-index: 3000;
+  padding: var(--space-xs) var(--space-sm);
+  background-color: var(--color-text);
+  color: var(--color-bg);
+  font-family: var(--font-body);
+  text-decoration: none;
+  transform: translateY(-200%);
+
+  &:focus {
+    transform: none;
+  }
+}
+
+// <main> recibe el foco por el enlace anterior, pero no es un control.
+main:focus {
+  outline: none;
 }
 
 ::selection {
