@@ -1,12 +1,15 @@
 <div class="projects">
-  <h2 class="seccion-titulo">Proyectos</h2>
+  <!-- El reveal anima solo este contenedor: el modal queda fuera, sin ningún ancestro con transform. -->
+  <div appScrollReveal>
+    <h2 class="seccion-titulo">Proyectos</h2>
 
-  <div class="projects-grid">
-    @for (proyecto of proyectos; track proyecto.id) {
-      <app-project-card
-        [class.projects-grid__item--destacado]="proyecto.destacado"
-        [proyecto]="proyecto" (seleccionar)="abrirModal(proyecto)"></app-project-card>
-    }
+    <div class="projects-grid">
+      @for (proyecto of proyectos; track proyecto.id) {
+        <app-project-card
+          [class.projects-grid__item--destacado]="proyecto.destacado"
+          [proyecto]="proyecto" (seleccionar)="abrirModal(proyecto)"></app-project-card>
+      }
+    </div>
   </div>
 
   @if (proyectoSeleccionado()) {

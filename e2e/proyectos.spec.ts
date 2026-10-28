@@ -66,13 +66,9 @@ test.describe('Proyectos y modal', () => {
   });
 
   test('con el diálogo abierto el fondo no hace scroll; al cerrarlo, sí', async ({ page }) => {
-    // Se llega a la sección y se espera a que termine su reveal, como haría una persona.
     await page.evaluate(() =>
       window.scrollTo({ top: (document.querySelector('#proyectos') as HTMLElement).offsetTop + 100, behavior: 'instant' }),
     );
-    await expect
-      .poll(() => page.evaluate(() => getComputedStyle(document.querySelector('#proyectos')!).transform))
-      .toBe('none');
     // Clic programático: no mueve el scroll de la página.
     await tarjeta(page, lienzo.titulo).evaluate((el: HTMLElement) => el.click());
     await expect(dialogo(page)).toBeVisible();
@@ -94,6 +90,57 @@ test.describe('Proyectos y modal', () => {
     await expect.poll(() => scrollActual(page)).toBeGreaterThan(sinDialogo);
   });
 
+  // Regresión: ningún ancestro del modal puede tener transform. Si la sección Proyectos conserva el
+  // transform inicial del scroll reveal (aún no revelada), el overlay fixed se mide contra la sección
+  // y el diálogo aparece fuera de pantalla hasta que termina el reveal. Se abre el modal por código,
+  // sin llegar a la sección, y se comprueba la posición en cada cuadro desde el primer instante.
+  test('el diálogo está en su sitio desde el primer instante, sin esperar al reveal', async ({ page }) => {
+    await page.locator('app-project-card button').first().evaluate((el: HTMLElement) => el.click());
+
+    const muestras = await page.evaluate(async () => {
+      const siguienteCuadro = () => new Promise<void>((resolver) => requestAnimationFrame(() => resolver()));
+      const limite = performance.now() + 3000;
+      while (!document.querySelector('[role="dialog"]') && performance.now() < limite) {
+        await siguienteCuadro();
+      }
+
+      const salida: {
+        caja: { x: number; y: number; width: number; height: number };
+        fondo: { x: number; y: number; width: number; height: number };
+        ancho: number;
+        alto: number;
+      }[] = [];
+      const fin = performance.now() + 400;
+      while (performance.now() < fin) {
+        const dialogoEl = document.querySelector('[role="dialog"]') as HTMLElement;
+        const caja = dialogoEl.getBoundingClientRect();
+        const fondo = (dialogoEl.parentElement as HTMLElement).getBoundingClientRect();
+        salida.push({
+          caja: { x: caja.x, y: caja.y, width: caja.width, height: caja.height },
+          fondo: { x: fondo.x, y: fondo.y, width: fondo.width, height: fondo.height },
+          ancho: window.innerWidth,
+          alto: window.innerHeight,
+        });
+        await siguienteCuadro();
+      }
+      return salida;
+    });
+
+    expect(muestras.length).toBeGreaterThan(0);
+    for (const { caja, fondo, ancho, alto } of muestras) {
+      expect(caja.x).toBeGreaterThanOrEqual(0);
+      expect(caja.y).toBeGreaterThanOrEqual(0);
+      expect(caja.x + caja.width).toBeLessThanOrEqual(ancho);
+      expect(caja.y + caja.height).toBeLessThanOrEqual(alto);
+      expect(Math.abs(caja.x + caja.width / 2 - ancho / 2)).toBeLessThanOrEqual(20);
+      expect(Math.abs(caja.y + caja.height / 2 - alto / 2)).toBeLessThanOrEqual(30);
+      expect(fondo.x).toBe(0);
+      expect(fondo.y).toBe(0);
+      expect(fondo.height).toBe(alto);
+      expect(fondo.width).toBeGreaterThanOrEqual(ancho - 20);
+    }
+  });
+
   for (const posicion of ['arriba', 'en medio', 'abajo'] as const) {
     test(`el diálogo queda dentro y centrado en la pantalla con la página ${posicion}`, async ({ page }) => {
       await page.evaluate((donde) => {
@@ -106,12 +153,7 @@ test.describe('Proyectos y modal', () => {
       await page.locator('app-project-card button').first().evaluate((el: HTMLElement) => el.click());
       await expect(dialogo(page)).toBeVisible();
 
-      // Se mide el estado asentado: el foco del diálogo desplaza la página y la sección termina su
-      // reveal. Mientras la sección conserva un transform, el overlay fixed se mide contra ella
-      // (solo ocurre al abrir por código una sección que nunca estuvo a la vista).
-      await expect
-        .poll(() => page.evaluate(() => getComputedStyle(document.querySelector('#proyectos')!).transform))
-        .toBe('none');
+      // cajaEstable espera solo a que termine la animación de entrada del propio diálogo.
       const caja = await cajaEstable(dialogo(page));
       const fondo = await cajaEstable(dialogo(page).locator('xpath=..'));
       const { width, height } = page.viewportSize()!;
