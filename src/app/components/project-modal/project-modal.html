@@ -10,7 +10,7 @@
     (click)="$event.stopPropagation()">
     <button #botonCerrar type="button" class="modal-cerrar" aria-label="Cerrar" (click)="cerrar.emit()">×</button>
 
-    <div class="card-imagen">
+    <div class="card-imagen card-imagen--panoramica">
       <img [src]="proyecto().imagen" [alt]="proyecto().titulo" />
     </div>
     <h3 id="modal-titulo">{{ proyecto().titulo }}</h3>
@@ -62,10 +62,10 @@
     }
 
     @if (proyecto().repoUrl !== 'PENDIENTE') {
-      <a class="modal-link" [href]="proyecto().repoUrl" target="_blank">Ver repositorio</a>
+      <a class="modal-link modal-link--separado" [href]="proyecto().repoUrl" target="_blank">Ver repositorio</a>
     }
     @if (proyecto().demoUrl !== 'PENDIENTE') {
-      <a class="modal-link" [href]="proyecto().demoUrl" target="_blank">Ver demo en vivo</a>
+      <a class="modal-link modal-link--separado" [href]="proyecto().demoUrl" target="_blank">Ver demo en vivo</a>
     }
   </div>
 </div>

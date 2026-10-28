@@ -36,7 +36,7 @@
   font-size: 0.9rem;
   color: var(--color-text-secondary);
   text-decoration: none;
-  transition: color 0.2s ease;
+  transition: color var(--duration-fast) ease;
 
   &::after {
     content: '';
@@ -48,7 +48,7 @@
     background-color: var(--color-accent);
     transform: scaleX(0);
     transform-origin: left;
-    transition: transform 0.2s ease;
+    transition: transform var(--duration-fast) ease;
   }
 
   &:hover,
@@ -96,7 +96,7 @@
   align-items: center;
   justify-content: center;
   z-index: 2000;
-  animation: menu-overlay-fade-in 0.2s ease;
+  animation: menu-overlay-fade-in var(--duration-fast) ease;
 }
 
 @keyframes menu-overlay-fade-in {
@@ -125,7 +125,7 @@
     font-size: 2rem;
     color: var(--color-text);
     text-decoration: none;
-    transition: color 0.2s ease;
+    transition: color var(--duration-fast) ease;
 
     &:hover {
       color: var(--color-text-secondary);

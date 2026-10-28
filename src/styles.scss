@@ -10,6 +10,11 @@
   // Único color de acento del sitio: cambiar este token cambia todo el acento
   // (botones sólidos, anillo de foco, subrayado del header, etiqueta destacada, nodo central del diagrama).
   --color-accent: #22C55E;
+  --color-error: #d98c4a;
+  --color-overlay: rgba(0, 0, 0, 0.75);
+
+  // Forma
+  --radius-sm: 2px;
 
   // Tipografía
   --font-display: 'Space Grotesk', sans-serif;
@@ -105,6 +110,112 @@ h1, h2, h3 {
     border-left: none;
     border-top: none;
   }
+}
+
+// Botones (hero)
+.btn {
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  font-weight: 500;
+  padding: var(--space-sm) var(--space-md);
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  text-decoration: none;
+  text-align: center;
+  display: inline-block;
+  transition:
+    opacity var(--duration-fast) ease,
+    transform var(--duration-fast) ease,
+    border-color var(--duration-fast) ease;
+
+  &:hover {
+    opacity: 0.85;
+    transform: translateY(-2px);
+  }
+
+  &:active {
+    transform: translateY(0);
+  }
+}
+
+.btn--solid {
+  background-color: var(--color-accent);
+  color: var(--color-bg);
+  border: 1px solid var(--color-accent);
+}
+
+.btn--outline {
+  background-color: transparent;
+  color: var(--color-text);
+  border: 1px solid var(--color-grid);
+
+  &:hover {
+    border-color: var(--color-text);
+  }
+}
+
+// Etiqueta de tecnología (skills, tarjetas y modal)
+.skill-tag {
+  border: 1px solid var(--color-grid);
+  background-color: transparent;
+  padding: 0.3rem 0.6rem;
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  color: var(--color-text-secondary);
+  border-radius: var(--radius-sm);
+}
+
+// Variante con reacción al hover (solo en la sección de skills)
+.skill-tag--interactivo {
+  transition:
+    border-color var(--duration-fast) ease,
+    color var(--duration-fast) ease;
+
+  &:hover {
+    border-color: var(--color-text-secondary);
+    color: var(--color-text);
+  }
+}
+
+// Enlace con borde (modal de proyecto y contacto)
+.modal-link {
+  display: inline-block;
+  border: 1px solid var(--color-grid);
+  padding: var(--space-xs) var(--space-sm);
+  color: var(--color-text);
+  text-decoration: none;
+  transition: border-color var(--duration-fast) ease;
+
+  &:hover {
+    border-color: var(--color-text);
+  }
+}
+
+// Variante para enlaces en línea sin contenedor con gap (modal de proyecto)
+.modal-link--separado {
+  margin-right: var(--space-sm);
+}
+
+// Contenedor de imagen de proyecto (tarjeta y modal)
+.card-imagen {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  border-bottom: 1px solid var(--color-grid);
+  margin-bottom: var(--space-sm);
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+}
+
+// Variante panorámica del modal
+.card-imagen--panoramica {
+  aspect-ratio: 21 / 9;
+  margin-bottom: var(--space-md);
 }
 
 // Revelado sutil al hacer scroll (usado por la directiva ScrollReveal).

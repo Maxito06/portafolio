@@ -36,7 +36,7 @@
   background-color: var(--color-surface);
   padding: var(--space-md);
   height: fit-content;
-  transition: border-color 0.2s ease;
+  transition: border-color var(--duration-fast) ease;
 
   &:hover {
     border-color: var(--color-text);
