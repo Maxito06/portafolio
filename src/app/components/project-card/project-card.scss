@@ -56,7 +56,7 @@
 }
 
 .project-card:has(.card-boton:focus-visible) {
-  outline: 2px dashed var(--color-text);
+  outline: 2px dashed var(--color-accent);
   outline-offset: 3px;
 }
 
@@ -91,6 +91,7 @@
 
 .card-contenido .hoja-label {
   display: block;
+  color: var(--color-accent);
   margin-bottom: var(--space-xs);
 }
 

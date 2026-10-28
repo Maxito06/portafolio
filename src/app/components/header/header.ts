@@ -25,8 +25,33 @@ export class Header implements OnDestroy {
   private readonly botonCerrar = viewChild<ElementRef<HTMLButtonElement>>('botonCerrar');
   private readonly overlay = viewChild<ElementRef<HTMLElement>>('overlay');
   private liberarScroll: (() => void) | null = null;
+  private observador?: IntersectionObserver;
 
   menuAbierto = signal(false);
+  // Id de la sección que cruza la zona de lectura; null mientras se ve el hero.
+  seccionActiva = signal<string | null>(null);
+
+  constructor() {
+    afterNextRender(() => {
+      this.observador = new IntersectionObserver(
+        (entradas) => {
+          for (const entrada of entradas) {
+            if (entrada.isIntersecting) {
+              this.seccionActiva.set(entrada.target.id === 'inicio' ? null : entrada.target.id);
+            }
+          }
+        },
+        { rootMargin: '-40% 0px -55% 0px' },
+      );
+
+      for (const id of ['inicio', 'sobre-mi', 'skills', 'proyectos', 'contacto']) {
+        const seccion = document.getElementById(id);
+        if (seccion) {
+          this.observador.observe(seccion);
+        }
+      }
+    });
+  }
 
   toggleMenu() {
     if (this.menuAbierto()) {
@@ -59,6 +84,7 @@ export class Header implements OnDestroy {
   }
 
   ngOnDestroy(): void {
+    this.observador?.disconnect();
     this.liberarScroll?.();
   }
 

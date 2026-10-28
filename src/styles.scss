@@ -7,7 +7,9 @@
   --color-grid: #2A2A2A;
   --color-text: #EDEDED;
   --color-text-secondary: #8A8A8A;
-  --color-accent: #D9D9D9;
+  // Único color de acento del sitio: cambiar este token cambia todo el acento
+  // (botones sólidos, anillo de foco, subrayado del header, etiqueta destacada, nodo central del diagrama).
+  --color-accent: #22C55E;
 
   // Tipografía
   --font-display: 'Space Grotesk', sans-serif;
@@ -156,7 +158,7 @@ button:focus-visible,
 input:focus-visible,
 textarea:focus-visible,
 [role='button']:focus-visible {
-  outline: 2px dashed var(--color-text);
+  outline: 2px dashed var(--color-accent);
   outline-offset: 3px;
 }
 

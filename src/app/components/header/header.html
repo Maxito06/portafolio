@@ -4,10 +4,10 @@
     <span class="header__name">Maximiliano Correa</span>
   </div>
   <nav class="header__nav">
-    <a class="header__link" href="#sobre-mi">Sobre mí</a>
-    <a class="header__link" href="#skills">Skills</a>
-    <a class="header__link" href="#proyectos">Proyectos</a>
-    <a class="header__link" href="#contacto">Contacto</a>
+    <a class="header__link" href="#sobre-mi" [attr.aria-current]="seccionActiva() === 'sobre-mi' ? 'location' : null">Sobre mí</a>
+    <a class="header__link" href="#skills" [attr.aria-current]="seccionActiva() === 'skills' ? 'location' : null">Skills</a>
+    <a class="header__link" href="#proyectos" [attr.aria-current]="seccionActiva() === 'proyectos' ? 'location' : null">Proyectos</a>
+    <a class="header__link" href="#contacto" [attr.aria-current]="seccionActiva() === 'contacto' ? 'location' : null">Contacto</a>
   </nav>
   <button
     #botonMenu

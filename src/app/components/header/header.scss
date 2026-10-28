@@ -45,13 +45,14 @@
     bottom: -2px;
     width: 100%;
     height: 1px;
-    background-color: var(--color-text);
+    background-color: var(--color-accent);
     transform: scaleX(0);
     transform-origin: left;
     transition: transform 0.2s ease;
   }
 
-  &:hover {
+  &:hover,
+  &[aria-current='location'] {
     color: var(--color-text);
 
     &::after {
