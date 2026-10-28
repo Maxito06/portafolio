@@ -9,12 +9,30 @@
     <a class="header__link" href="#proyectos">Proyectos</a>
     <a class="header__link" href="#contacto">Contacto</a>
   </nav>
-  <button type="button" class="menu-toggle" (click)="toggleMenu()">☰</button>
+  <button
+    #botonMenu
+    type="button"
+    class="menu-toggle"
+    [attr.aria-label]="menuAbierto() ? 'Cerrar menú' : 'Abrir menú'"
+    [attr.aria-expanded]="menuAbierto()"
+    aria-controls="menu-movil"
+    (click)="toggleMenu()"
+  >☰</button>
 </header>
 
 @if (menuAbierto()) {
-  <div class="menu-overlay" (click)="cerrarMenu()">
-    <button type="button" class="menu-cerrar" (click)="cerrarMenu()">×</button>
+  <div
+    #overlay
+    id="menu-movil"
+    class="menu-overlay"
+    role="dialog"
+    aria-modal="true"
+    aria-label="Menú de navegación"
+    tabindex="-1"
+    (click)="cerrarMenu()"
+    (keydown)="atrapar($event)"
+  >
+    <button #botonCerrar type="button" class="menu-cerrar" aria-label="Cerrar menú" (click)="cerrarMenu()">×</button>
     <nav class="menu-overlay-nav" (click)="$event.stopPropagation()">
       <a href="#sobre-mi" (click)="cerrarMenu()">Sobre mí</a>
       <a href="#skills" (click)="cerrarMenu()">Skills</a>

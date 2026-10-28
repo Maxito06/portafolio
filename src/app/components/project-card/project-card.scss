@@ -1,4 +1,5 @@
 .project-card {
+  position: relative;
   border: 1px solid var(--color-grid);
   background-color: var(--color-surface);
   cursor: pointer;
@@ -29,6 +30,34 @@
 
 .project-card:hover .card-imagen img {
   transform: scale(1.05);
+}
+
+// El botón del título hace clicable toda la tarjeta mediante su ::after.
+.card-boton {
+  background: none;
+  border: none;
+  padding: 0;
+  margin: 0;
+  font: inherit;
+  color: inherit;
+  text-align: left;
+  cursor: pointer;
+
+  &::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+  }
+
+  // El foco se marca en toda la tarjeta, no solo alrededor del título.
+  &:focus-visible {
+    outline: none;
+  }
+}
+
+.project-card:has(.card-boton:focus-visible) {
+  outline: 2px dashed var(--color-text);
+  outline-offset: 3px;
 }
 
 .card-contenido {

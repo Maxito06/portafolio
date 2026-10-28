@@ -1,11 +1,4 @@
-<div
-  class="project-card"
-  [class.project-card--destacado]="proyecto().destacado"
-  role="button"
-  tabindex="0"
-  (click)="seleccionar.emit(proyecto())"
-  (keydown.enter)="seleccionar.emit(proyecto())"
->
+<div class="project-card" [class.project-card--destacado]="proyecto().destacado">
   <div class="card-imagen">
     <img [src]="proyecto().imagen" [alt]="proyecto().titulo" />
   </div>
@@ -13,7 +6,11 @@
     @if (proyecto().destacado) {
       <span class="hoja-label">PROYECTO DESTACADO</span>
     }
-    <h3>{{ proyecto().titulo }}</h3>
+    <h3>
+      <button type="button" class="card-boton" (click)="seleccionar.emit(proyecto())">
+        {{ proyecto().titulo }}
+      </button>
+    </h3>
     <p>{{ proyecto().descripcionCorta }}</p>
     <div class="tags">
       @for (tech of proyecto().stack; track tech) {
