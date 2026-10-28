@@ -1,10 +1,13 @@
-<div class="project-card" [class.project-card--destacado]="proyecto().destacado">
+<div
+  class="project-card tarjeta tarjeta--interactiva"
+  [class.project-card--destacado]="proyecto().destacado"
+>
   <div class="card-imagen">
     <img [ngSrc]="proyecto().imagen" [alt]="proyecto().titulo" fill />
   </div>
   <div class="card-contenido">
     @if (proyecto().destacado) {
-      <span class="hoja-label">PROYECTO DESTACADO</span>
+      <span class="etiqueta">PROYECTO DESTACADO</span>
     }
     <h3>
       <button type="button" class="card-boton" (click)="seleccionar.emit(proyecto())">

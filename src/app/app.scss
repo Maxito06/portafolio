@@ -1,0 +1,4 @@
+// Separador fino entre secciones (el espacio en blanco hace el resto).
+main > section + section {
+  border-top: 1px solid var(--color-border);
+}

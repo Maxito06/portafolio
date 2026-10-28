@@ -7,7 +7,7 @@
   align-items: center;
   justify-content: space-between;
   gap: var(--space-md);
-  padding: var(--space-sm) var(--space-md);
+  padding: var(--space-sm) var(--section-padding-x);
   background-color: var(--color-bg);
   border-bottom: 1px solid var(--color-border);
 }
@@ -15,12 +15,14 @@
 .header__brand {
   display: flex;
   flex-direction: column;
-  gap: var(--space-xs);
+  gap: var(--space-2xs);
 }
 
 .header__name {
   font-family: var(--font-display);
-  font-size: 1.25rem;
+  font-size: var(--text-lg);
+  font-weight: var(--weight-bold);
+  line-height: var(--leading-tight);
   color: var(--color-text);
 }
 
@@ -32,23 +34,25 @@
 
 .header__link {
   position: relative;
+  padding: var(--space-xs) 0;
   font-family: var(--font-body);
-  font-size: 0.9rem;
+  font-size: var(--text-sm);
+  font-weight: var(--weight-semibold);
   color: var(--color-text-secondary);
   text-decoration: none;
-  transition: color var(--duration-fast) ease;
+  transition: color var(--duration-fast) var(--ease-standard);
 
   &::after {
     content: '';
     position: absolute;
     left: 0;
-    bottom: -2px;
+    bottom: 0;
     width: 100%;
-    height: 1px;
+    height: 2px;
     background-color: var(--color-accent);
     transform: scaleX(0);
     transform-origin: left;
-    transition: transform var(--duration-fast) ease;
+    transition: transform var(--duration-base) var(--ease-standard);
   }
 
   &:hover,
@@ -68,7 +72,7 @@
   background: transparent;
   border: none;
   color: var(--color-text);
-  font-size: 1.5rem;
+  font-size: var(--text-xl);
   cursor: pointer;
 }
 
@@ -96,7 +100,7 @@
   align-items: center;
   justify-content: center;
   z-index: 2000;
-  animation: menu-overlay-fade-in var(--duration-fast) ease;
+  animation: menu-overlay-fade-in var(--duration-fast) var(--ease-standard);
 }
 
 @keyframes menu-overlay-fade-in {
@@ -122,13 +126,14 @@
 
   a {
     font-family: var(--font-display);
-    font-size: 2rem;
+    font-size: var(--text-2xl);
+    font-weight: var(--weight-bold);
     color: var(--color-text);
     text-decoration: none;
-    transition: color var(--duration-fast) ease;
+    transition: color var(--duration-fast) var(--ease-standard);
 
     &:hover {
-      color: var(--color-text-secondary);
+      color: var(--color-accent);
     }
   }
 }
@@ -144,7 +149,7 @@
   min-height: 44px;
   background: transparent;
   border: none;
-  font-size: 2rem;
+  font-size: var(--text-2xl);
   color: var(--color-text);
   cursor: pointer;
 }

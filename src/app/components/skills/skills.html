@@ -1,14 +1,13 @@
 <div class="skills">
-  <span class="hoja-label">HOJA 03 | HABILIDADES</span>
-  <h2>Skills</h2>
+  <h2 class="seccion-titulo">Skills</h2>
 
   <div class="skills-grid">
     @for (categoria of categorias; track categoria.nombre) {
-      <div class="skills-card">
-        <span class="hoja-label">{{ categoria.nombre }}</span>
+      <div class="skills-card tarjeta">
+        <span class="etiqueta">{{ categoria.nombre }}</span>
         <div class="skills-tags">
           @for (item of categoria.items; track item) {
-            <span class="skill-tag skill-tag--interactivo">{{ item }}</span>
+            <span class="skill-tag">{{ item }}</span>
           }
         </div>
       </div>

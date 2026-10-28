@@ -22,7 +22,7 @@
     }
 
     @if (proyecto().destacados) {
-      <span class="hoja-label">PUNTOS DESTACADOS</span>
+      <span class="etiqueta">PUNTOS DESTACADOS</span>
       <ul class="modal-destacados">
         @for (punto of proyecto().destacados; track punto) {
           <li>{{ punto }}</li>
@@ -31,7 +31,7 @@
     }
 
     @if (proyecto().stackPorCapa) {
-      <span class="hoja-label">STACK POR CAPA</span>
+      <span class="etiqueta">STACK POR CAPA</span>
       <div class="stack-capas">
         @for (capa of proyecto().stackPorCapa; track capa.capa) {
           <div class="stack-capa">
@@ -53,7 +53,7 @@
     }
 
     @if (proyecto().limitaciones) {
-      <span class="hoja-label">ALCANCE Y LIMITACIONES</span>
+      <span class="etiqueta">ALCANCE Y LIMITACIONES</span>
       <ul class="modal-destacados">
         @for (limitacion of proyecto().limitaciones; track limitacion) {
           <li>{{ limitacion }}</li>

@@ -1,23 +1,16 @@
+// Superficie, borde y hover de acento vienen de .tarjeta y .tarjeta--interactiva.
 .project-card {
   position: relative;
-  border: 1px solid var(--color-border);
-  background-color: var(--color-surface);
   cursor: pointer;
-  border-radius: var(--radius);
-  transition: border-color var(--duration-fast) ease;
   overflow: hidden;
-
-  &:hover {
-    border-color: var(--color-accent);
-  }
 }
 
 .card-imagen img {
-  transition: transform var(--duration-slow) ease;
+  transition: transform var(--duration-slow) var(--ease-standard);
 }
 
 .project-card:hover .card-imagen img {
-  transform: scale(1.05);
+  transform: scale(1.03);
 }
 
 // El botón del título hace clicable toda la tarjeta mediante su ::after.
@@ -30,6 +23,7 @@
   color: inherit;
   text-align: left;
   cursor: pointer;
+  transition: color var(--duration-base) var(--ease-standard);
 
   &::after {
     content: '';
@@ -43,6 +37,10 @@
   }
 }
 
+.project-card:hover .card-boton {
+  color: var(--color-accent);
+}
+
 .project-card:has(.card-boton:focus-visible) {
   outline: 2px solid var(--color-ring);
   outline-offset: 3px;
@@ -51,13 +49,9 @@
 .card-contenido {
   padding: var(--space-md);
 
-  h3 {
-    font-family: var(--font-display);
-  }
-
   p {
     color: var(--color-text-secondary);
-    margin: var(--space-sm) 0;
+    margin: var(--space-xs) 0 var(--space-sm);
   }
 }
 
@@ -67,7 +61,7 @@
   gap: var(--space-xs);
 }
 
-.card-contenido .hoja-label {
+.card-contenido .etiqueta {
   display: block;
   color: var(--color-accent);
   margin-bottom: var(--space-xs);

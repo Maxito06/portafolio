@@ -1,9 +1,8 @@
 <div class="hero">
   <div class="hero-texto">
-    <span class="hoja-label">HOJA 01 | PERFIL</span>
     <h1 class="hero__title">Maximiliano Correa</h1>
     <p class="hero__subtitle">Desarrollador Full Stack Junior</p>
-    <span class="hoja-label hero__stack">Angular | NestJS | QA Automation</span>
+    <span class="etiqueta hero__stack">Angular | NestJS | QA Automation</span>
 
     <div class="hero__actions">
       <button type="button" class="btn btn--solid" (click)="scrollAProyectos()">
@@ -20,42 +19,42 @@
     </div>
   </div>
 
-  <div class="hero-diagrama">
+  <div class="hero-diagrama tarjeta">
     <svg
       viewBox="0 0 500 500"
       xmlns="http://www.w3.org/2000/svg"
       role="img"
       aria-label="Diagrama: Maximiliano Correa conectado con Angular, TypeScript, Playwright, NestJS y Git"
     >
-      <line x1="250" y1="225" x2="95" y2="104" stroke="var(--color-border)" stroke-width="1" stroke-dasharray="4 4"/>
-      <line x1="250" y1="225" x2="405" y2="104" stroke="var(--color-border)" stroke-width="1" stroke-dasharray="4 4"/>
-      <line x1="320" y1="250" x2="370" y2="272" stroke="var(--color-border)" stroke-width="1" stroke-dasharray="4 4"/>
-      <line x1="250" y1="275" x2="250" y2="400" stroke="var(--color-border)" stroke-width="1" stroke-dasharray="4 4"/>
-      <line x1="180" y1="250" x2="150" y2="272" stroke="var(--color-border)" stroke-width="1" stroke-dasharray="4 4"/>
+      <line class="diagrama__conector" x1="250" y1="225" x2="95" y2="104"/>
+      <line class="diagrama__conector" x1="250" y1="225" x2="405" y2="104"/>
+      <line class="diagrama__conector" x1="320" y1="250" x2="370" y2="272"/>
+      <line class="diagrama__conector" x1="250" y1="275" x2="250" y2="400"/>
+      <line class="diagrama__conector" x1="180" y1="250" x2="150" y2="272"/>
 
-      <rect x="180" y="225" width="140" height="50" fill="var(--color-surface)" stroke="var(--color-accent)" stroke-width="1.5" rx="2"/>
-      <text x="250" y="245" text-anchor="middle" font-family="var(--font-mono)" font-size="13" fill="var(--color-text)">MAXIMILIANO</text>
-      <text x="250" y="260" text-anchor="middle" font-family="var(--font-mono)" font-size="13" fill="var(--color-text)">CORREA</text>
+      <rect class="diagrama__nodo diagrama__nodo--central" x="180" y="225" width="140" height="50"/>
+      <text class="diagrama__etiqueta diagrama__etiqueta--central" x="250" y="245">MAXIMILIANO</text>
+      <text class="diagrama__etiqueta diagrama__etiqueta--central" x="250" y="260">CORREA</text>
 
-      <rect x="40" y="60" width="110" height="44" fill="var(--color-surface)" stroke="var(--color-border)" stroke-width="1" rx="2"/>
-      <text x="95" y="87" text-anchor="middle" font-family="var(--font-mono)" font-size="15" fill="var(--color-text-secondary)">ANGULAR</text>
-      <circle cx="95" cy="104" r="3" fill="var(--color-text-secondary)"/>
+      <rect class="diagrama__nodo" x="40" y="60" width="110" height="44"/>
+      <text class="diagrama__etiqueta" x="95" y="87">ANGULAR</text>
+      <circle class="diagrama__punto" cx="95" cy="104" r="3"/>
 
-      <rect x="350" y="60" width="110" height="44" fill="var(--color-surface)" stroke="var(--color-border)" stroke-width="1" rx="2"/>
-      <text x="405" y="87" text-anchor="middle" font-family="var(--font-mono)" font-size="15" fill="var(--color-text-secondary)">TYPESCRIPT</text>
-      <circle cx="405" cy="104" r="3" fill="var(--color-text-secondary)"/>
+      <rect class="diagrama__nodo" x="350" y="60" width="110" height="44"/>
+      <text class="diagrama__etiqueta" x="405" y="87">TYPESCRIPT</text>
+      <circle class="diagrama__punto" cx="405" cy="104" r="3"/>
 
-      <rect x="370" y="250" width="110" height="44" fill="var(--color-surface)" stroke="var(--color-border)" stroke-width="1" rx="2"/>
-      <text x="425" y="277" text-anchor="middle" font-family="var(--font-mono)" font-size="15" fill="var(--color-text-secondary)">PLAYWRIGHT</text>
-      <circle cx="370" cy="272" r="3" fill="var(--color-text-secondary)"/>
+      <rect class="diagrama__nodo" x="370" y="250" width="110" height="44"/>
+      <text class="diagrama__etiqueta" x="425" y="277">PLAYWRIGHT</text>
+      <circle class="diagrama__punto" cx="370" cy="272" r="3"/>
 
-      <rect x="195" y="400" width="110" height="44" fill="var(--color-surface)" stroke="var(--color-border)" stroke-width="1" rx="2"/>
-      <text x="250" y="427" text-anchor="middle" font-family="var(--font-mono)" font-size="15" fill="var(--color-text-secondary)">NESTJS</text>
-      <circle cx="250" cy="400" r="3" fill="var(--color-text-secondary)"/>
+      <rect class="diagrama__nodo" x="195" y="400" width="110" height="44"/>
+      <text class="diagrama__etiqueta" x="250" y="427">NESTJS</text>
+      <circle class="diagrama__punto" cx="250" cy="400" r="3"/>
 
-      <rect x="40" y="250" width="110" height="44" fill="var(--color-surface)" stroke="var(--color-border)" stroke-width="1" rx="2"/>
-      <text x="95" y="277" text-anchor="middle" font-family="var(--font-mono)" font-size="15" fill="var(--color-text-secondary)">GIT</text>
-      <circle cx="150" cy="272" r="3" fill="var(--color-text-secondary)"/>
+      <rect class="diagrama__nodo" x="40" y="250" width="110" height="44"/>
+      <text class="diagrama__etiqueta" x="95" y="277">GIT</text>
+      <circle class="diagrama__punto" cx="150" cy="272" r="3"/>
     </svg>
   </div>
 </div>

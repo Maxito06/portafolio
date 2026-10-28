@@ -116,13 +116,27 @@ h3 {
 }
 
 // Etiqueta de apoyo: mono, mayúsculas, texto secundario.
-.hoja-label {
+.etiqueta {
   font-family: var(--font-mono);
   font-size: var(--text-xs);
   font-weight: var(--weight-medium);
   letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--color-text-secondary);
+}
+
+// Encabezado de sección: barra corta de acento sobre el título.
+.seccion-titulo {
+  margin-bottom: var(--space-lg);
+
+  &::before {
+    content: '';
+    display: block;
+    width: var(--space-lg);
+    height: var(--space-2xs);
+    margin-bottom: var(--space-sm);
+    background-color: var(--color-accent);
+  }
 }
 
 // Superficie base de tarjeta (sin sombra: la elevación es el tono de superficie).
@@ -199,18 +213,6 @@ h3 {
   line-height: var(--leading-tight);
   color: var(--color-text-secondary);
   border-radius: var(--radius);
-}
-
-// Variante con reacción al hover (solo en la sección de skills)
-.skill-tag--interactivo {
-  transition:
-    border-color var(--duration-fast) var(--ease-standard),
-    color var(--duration-fast) var(--ease-standard);
-
-  &:hover {
-    border-color: var(--color-text-secondary);
-    color: var(--color-text);
-  }
 }
 
 // Enlace con borde (modal de proyecto y contacto)

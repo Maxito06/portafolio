@@ -4,9 +4,9 @@
   display: grid;
   grid-template-columns: 1fr;
   align-items: center;
-  gap: var(--space-lg);
+  gap: var(--space-xl);
   // En móvil el diagrama va debajo del texto y el hero puede crecer más que la pantalla.
-  padding: var(--space-lg) var(--section-padding-x);
+  padding: var(--space-xl) var(--section-padding-x);
 }
 
 .hero-texto {
@@ -16,9 +16,11 @@
   gap: var(--space-sm);
 }
 
+// Marco del diagrama: superficie elevada con borde, sin sombra.
 .hero-diagrama {
   display: flex;
   justify-content: center;
+  padding: var(--space-md);
 
   svg {
     max-width: 420px;
@@ -29,7 +31,7 @@
 
 @media (min-width: 1024px) {
   .hero {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1.1fr 0.9fr;
     padding-top: 0;
     padding-bottom: 0;
   }
@@ -39,20 +41,16 @@
   }
 }
 
-.hero__title {
-  font-size: clamp(2.5rem, 6vw, 4.5rem);
-}
-
 .hero__subtitle {
   margin: 0;
-  font-family: var(--font-body);
-  font-weight: 400;
-  font-size: clamp(1.1rem, 2.5vw, 1.5rem);
+  font-size: var(--text-xl);
+  line-height: var(--leading-tight);
   color: var(--color-text-secondary);
 }
 
 .hero__stack {
-  font-size: 0.9rem;
+  font-size: var(--text-sm);
+  color: var(--color-accent);
 }
 
 .hero__actions {
@@ -62,3 +60,37 @@
   margin-top: var(--space-md);
 }
 
+// Diagrama: esquema de nodos con ángulos rectos y conectores continuos.
+.diagrama__conector {
+  stroke: var(--color-border-strong);
+  stroke-width: 1;
+}
+
+.diagrama__nodo {
+  fill: var(--color-surface-raised);
+  stroke: var(--color-border-strong);
+  stroke-width: 1;
+}
+
+.diagrama__nodo--central {
+  fill: var(--color-bg);
+  stroke: var(--color-accent);
+  stroke-width: 2;
+}
+
+.diagrama__etiqueta {
+  font-family: var(--font-mono);
+  font-size: 15px;
+  font-weight: var(--weight-medium);
+  fill: var(--color-text);
+  text-anchor: middle;
+}
+
+.diagrama__etiqueta--central {
+  font-size: 13px;
+  font-weight: var(--weight-bold);
+}
+
+.diagrama__punto {
+  fill: var(--color-accent);
+}

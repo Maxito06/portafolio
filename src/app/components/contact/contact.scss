@@ -1,15 +1,40 @@
 .contact {
   padding: var(--section-padding-y) var(--section-padding-x);
 
-  h2 {
-    margin-bottom: var(--space-lg);
+  // En escritorio: texto y enlaces a la izquierda, formulario a la derecha.
+  // El orden del DOM (texto, formulario, enlaces) no cambia.
+  @media (min-width: 900px) {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: var(--space-xl);
+    align-items: start;
+
+    h2 {
+      grid-column: 1 / -1;
+    }
+
+    .contact__intro {
+      grid-column: 1;
+      grid-row: 2;
+    }
+
+    .contact-form {
+      grid-column: 2;
+      grid-row: 2 / span 2;
+    }
+
+    .contact-links {
+      grid-column: 1;
+      grid-row: 3;
+      align-self: start;
+    }
   }
 }
 
 .contact__intro {
+  max-width: 45ch;
   color: var(--color-text-secondary);
-  margin-top: var(--space-sm);
-  margin-bottom: var(--space-lg);
+  margin: 0 0 var(--space-lg);
 }
 
 // El formulario va sobre --color-bg: el rojo de error solo cumple AA (4,5:1) sobre ese fondo.
@@ -17,7 +42,8 @@
   display: flex;
   flex-direction: column;
   gap: var(--space-md);
-  max-width: 500px;
+  width: 100%;
+  max-width: 560px;
 }
 
 .form-field {
@@ -84,5 +110,11 @@
 .contact-links {
   display: flex;
   gap: var(--space-sm);
-  margin-top: var(--space-md);
+  margin-top: var(--space-lg);
+}
+
+@media (min-width: 900px) {
+  .contact-links {
+    margin-top: 0;
+  }
 }
