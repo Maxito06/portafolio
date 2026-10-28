@@ -24,7 +24,6 @@
   --font-display: var(--font-mono);
   --font-body: 'IBM Plex Sans', system-ui, sans-serif;
 
-  --weight-regular: 400;
   --weight-medium: 500;
   --weight-semibold: 600;
   --weight-bold: 700;
@@ -39,6 +38,7 @@
 
   --leading-tight: 1.2;
   --leading-body: 1.6;
+  --tracking-label: 0.08em;
 
   // Espaciado (base 4px)
   --space-2xs: 0.25rem;
@@ -59,14 +59,22 @@
 
   // Forma y elevación
   --radius: 0;
-  --radius-full: 50%;
   --shadow-modal: 0 24px 64px rgb(2 6 23 / 0.6);
 
-  // Movimiento
+  // Objetivo táctil mínimo de controles (botones, enlaces, campos)
+  --target-min: 44px;
+
+  // Estados de opacidad de botones
+  --opacity-hover: 0.9;
+  --opacity-active: 0.8;
+  --opacity-disabled: 0.5;
+
+  // Movimiento: reveal sutil (desplazamiento de 8 a 16px, 300 a 400ms, salida suave)
   --duration-fast: 150ms;
   --duration-base: 250ms;
   --duration-slow: 350ms;
   --ease-standard: cubic-bezier(0.5, 1, 0.89, 1);
+  --reveal-distance: 12px;
 
   // Altura del header sticky (el header la usa como min-height para que sea exacta)
   --header-height: 5.25rem;
@@ -120,7 +128,7 @@ h3 {
   font-family: var(--font-mono);
   font-size: var(--text-xs);
   font-weight: var(--weight-medium);
-  letter-spacing: 0.08em;
+  letter-spacing: var(--tracking-label);
   text-transform: uppercase;
   color: var(--color-text-secondary);
 }
@@ -156,7 +164,7 @@ h3 {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  min-height: 44px;
+  min-height: var(--target-min);
   padding: var(--space-xs) var(--space-md);
   font-family: var(--font-body);
   font-size: var(--text-base);
@@ -173,7 +181,7 @@ h3 {
     border-color var(--duration-base) var(--ease-standard);
 
   &:disabled {
-    opacity: 0.5;
+    opacity: var(--opacity-disabled);
     cursor: not-allowed;
   }
 }
@@ -184,11 +192,11 @@ h3 {
   border-color: var(--color-accent);
 
   &:hover:not(:disabled) {
-    opacity: 0.9;
+    opacity: var(--opacity-hover);
   }
 
   &:active:not(:disabled) {
-    opacity: 0.8;
+    opacity: var(--opacity-active);
   }
 }
 
@@ -200,6 +208,10 @@ h3 {
   &:hover:not(:disabled) {
     background-color: var(--color-surface);
     border-color: var(--color-text);
+  }
+
+  &:active:not(:disabled) {
+    background-color: var(--color-surface-raised);
   }
 }
 
@@ -219,7 +231,7 @@ h3 {
 .modal-link {
   display: inline-flex;
   align-items: center;
-  min-height: 44px;
+  min-height: var(--target-min);
   border: 1px solid var(--color-border-strong);
   border-radius: var(--radius);
   padding: var(--space-xs) var(--space-sm);
@@ -232,6 +244,10 @@ h3 {
   &:hover {
     border-color: var(--color-text);
     background-color: var(--color-surface-raised);
+  }
+
+  &:active {
+    background-color: var(--color-surface);
   }
 }
 
@@ -266,7 +282,7 @@ h3 {
 // Revelado sutil al hacer scroll (usado por la directiva ScrollReveal).
 .scroll-reveal {
   opacity: 0;
-  transform: translateY(24px);
+  transform: translateY(var(--reveal-distance));
   transition:
     opacity var(--duration-slow) var(--ease-standard),
     transform var(--duration-slow) var(--ease-standard);
@@ -318,6 +334,14 @@ main:focus {
 @media (prefers-reduced-motion: reduce) {
   html, body {
     scroll-behavior: auto;
+  }
+
+  // Sin movimiento: los cambios de estado (hover, subrayado, entrada del modal) son instantáneos.
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
   }
 
   .scroll-reveal {

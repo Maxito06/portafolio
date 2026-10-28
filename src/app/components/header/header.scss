@@ -67,8 +67,8 @@
 
 .menu-toggle {
   display: none;
-  min-width: 44px;
-  min-height: 44px;
+  min-width: var(--target-min);
+  min-height: var(--target-min);
   background: transparent;
   border: none;
   color: var(--color-text);
@@ -145,8 +145,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  min-width: 44px;
-  min-height: 44px;
+  min-width: var(--target-min);
+  min-height: var(--target-min);
   background: transparent;
   border: none;
   font-size: var(--text-2xl);

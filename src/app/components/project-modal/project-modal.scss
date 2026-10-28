@@ -63,9 +63,9 @@
     content: '';
     position: absolute;
     left: 0;
-    top: 0.7em;
-    width: 6px;
-    height: 6px;
+    top: 0.55em;
+    width: var(--space-xs);
+    height: var(--space-xs);
     background: var(--color-accent);
   }
 }
@@ -101,7 +101,7 @@
 @keyframes modal-contenido-pop-in {
   from {
     opacity: 0;
-    transform: translateY(8px);
+    transform: translateY(var(--reveal-distance));
   }
   to {
     opacity: 1;
@@ -123,8 +123,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  min-width: 44px;
-  min-height: 44px;
+  min-width: var(--target-min);
+  min-height: var(--target-min);
   background: transparent;
   border: none;
   font-size: var(--text-xl);
