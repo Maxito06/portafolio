@@ -4,6 +4,7 @@
 ![TypeScript](https://img.shields.io/badge/TypeScript-5.9-3178C6?logo=typescript&logoColor=white)
 ![SCSS](https://img.shields.io/badge/SCSS-CC6699?logo=sass&logoColor=white)
 ![Deploy](https://img.shields.io/badge/Deploy-Vercel-000000?logo=vercel&logoColor=white)
+[![CI](https://github.com/Maxito06/portafolio/actions/workflows/ci.yml/badge.svg)](https://github.com/Maxito06/portafolio/actions/workflows/ci.yml)
 
 Portafolio personal de **Maximiliano Correa**, Ingeniero de Sistemas (UIS) y Desarrollador Full Stack Junior | Angular, NestJS, QA Automation. Mi experiencia laboral es en frontend y QA; el perfil full stack lo respalda Lienzo, un proyecto propio.
 
@@ -139,6 +140,36 @@ ng build
 ```
 
 Los artefactos de build quedan en `dist/`.
+
+## Pruebas
+
+Cada push y cada pull request hacia `main` ejecuta en GitHub Actions el build de producción, las pruebas unitarias y las de extremo a extremo (workflow en `.github/workflows/ci.yml`).
+
+```bash
+# Pruebas unitarias (Vitest, a través de Angular CLI)
+ng test --watch=false
+
+# Pruebas de extremo a extremo (Playwright), la primera vez hay que instalar Chromium
+npx playwright install chromium
+npm run e2e
+```
+
+`npm run e2e` levanta la aplicación en `http://localhost:4200` por sí sola (o reutiliza el servidor si ya está corriendo) y genera un reporte HTML en `playwright-report/`.
+
+**Pruebas unitarias** (36 pruebas en 10 archivos, todas pasan):
+
+- **Formulario de contacto:** validación de nombre, correo (vacío y con formato inválido) y mensaje, espacios en blanco como vacío, errores al salir del campo o tras intentar enviar, foco al primer campo inválido, y envío válido que llama una sola vez a `fetch` y reinicia el formulario.
+- **Modal de proyecto:** cierre con `Escape`, con el botón y con clic en el fondo (y no con clic dentro), bloque de alcance y limitaciones, foco inicial y bloqueo del scroll.
+- **Tarjeta de proyecto:** el título es un botón y emite el proyecto seleccionado.
+- **App:** se crea y renderiza las secciones en orden (`inicio`, `sobre-mi`, `proyectos`, `skills`, `contacto`).
+
+**Pruebas de extremo a extremo con Playwright**, en escritorio y en un viewport móvil de 375px de ancho (46 pruebas en total: 37 pasan y 9 se omiten):
+
+- **Formulario:** con la ruta de Formspree interceptada, de modo que nunca se envían peticiones ni correos reales. Cubre envío vacío, correo inválido, envío válido y respuesta de error del servicio.
+- **Proyectos:** apertura y cierre del diálogo con ratón y con teclado (`Enter` y `Espacio`), foco de entrada y devolución del foco, contenido del proyecto Lienzo, bloqueo del scroll del fondo, y regresión del modal (el diálogo queda dentro y centrado en la pantalla en cualquier posición de scroll y desde el primer instante).
+- **Navegación:** enlaces del header por anclas con el título visible bajo el header, menú móvil (abre, atrapa el foco, cierra con `Escape` y navega), enlace "Saltar al contenido" y descarga del CV.
+
+Las 9 pruebas omitidas son intencionales: la barra de enlaces del header solo existe en escritorio y el menú móvil solo en móvil, así que cada una solo corre en el proyecto que le corresponde.
 
 ## Despliegue
 
